@@ -37,7 +37,6 @@
 
 # production
 /react-app/build
-/react-app/dist/
 
 # misc
 /react-app/.DS_Store

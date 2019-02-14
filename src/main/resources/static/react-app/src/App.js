@@ -1,28 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
+
+import {
+    Page
+} from 'react-weui';
+
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+import CategoryPage from './pages/CategoryPage';
+import SearchResult from "./pages/SearchResult";
+//import './App.css';
+
+//import styles
+import 'weui';
+import 'react-weui/build/packages/react-weui.css';
+
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+    componentDidMount() {
+        console.log("APP did mount");
+    }
+
+    render() {
+        return (
+            <Router>
+                <CacheSwitch>
+                    <CacheRoute path="/" exact component={ Home } />
+                    <CacheRoute path="/detail/:id" exact component={ Detail } />
+                    <CacheRoute path="/category/:id" exact component={ CategoryPage }/>
+                    <CacheRoute path="/search-result/:q" exact component={ SearchResult }/>
+                </CacheSwitch>
+            </Router>
+        );
+    }
 }
 
 export default App;

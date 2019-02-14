@@ -55,22 +55,33 @@
         <!-- 加入本地库 -->
         <dependency>
             <groupId>taobao-sdk</groupId>
-            <artifactId>taobao-sdk-java-auto_1533261545672-20180814</artifactId>
+            <artifactId>taobao-sdk-java-auto_1533261545672-20190125</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/lib/taobao-sdk-java-auto_1533261545672-20180814.jar</systemPath>
+            <systemPath>${project.basedir}/src/lib/taobao-sdk-java-auto_1533261545672-20190125.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>taobao-sdk</groupId>
-            <artifactId>taobao-sdk-java-auto_1533261545672-20180814-source</artifactId>
+            <artifactId>taobao-sdk-java-auto_1533261545672-20190125-source</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/lib/taobao-sdk-java-auto_1533261545672-20180814-source.jar</systemPath>
+            <systemPath>${project.basedir}/src/lib/taobao-sdk-java-auto_1533261545672-20190125-source.jar</systemPath>
         </dependency>
 
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>
+                        **/node_modules/
+                    </exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
